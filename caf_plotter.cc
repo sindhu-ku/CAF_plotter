@@ -33,11 +33,11 @@ int caf_plotter(std::string input_file_list, std::string output_rootfile){
 	return 1;
   }
 
-  //maybe add set branch status here
+  //to-do: maybe set branch status here
   long Nentries = caf_chain->GetEntries();
   std::cout << Form("Total number of spills = %ld", Nentries) << std::endl;
 
-  //Define Standard Record and link it to the caf_tree
+  //Define Standard Record and link it to the CAF tree branch "rec"
   auto sr = new caf::StandardRecord;
   caf_chain->SetBranchAddress("rec", &sr);
 
