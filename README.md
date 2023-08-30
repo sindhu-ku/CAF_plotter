@@ -10,4 +10,4 @@ Set up the environment and compile the code:
 
 ## Running the code:
 
-'./plotter <input_rootfile_list> <output_rootfile.root>'
+`./plotter <input_rootfile_list> <output_rootfile.root>1
