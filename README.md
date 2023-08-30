@@ -1,11 +1,13 @@
-Preliminary attempt at an analysis setup for reading DUNE NDLAr 2x2 CAF files.
+##CAF plotter
 
-Usage:
+#Preliminary attempt at an analysis setup for reading DUNE NDLAr 2x2 CAF files.
+
+##Usage:
 
 Set up the environment and compile the code:
 
-./compile.sh
+`./compile.sh`
 
-Running the code:
+##Running the code:
 
-./plotter <input_rootfile_list> <output_rootfile.root>
+'./plotter <input_rootfile_list> <output_rootfile.root>'
