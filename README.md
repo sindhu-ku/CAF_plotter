@@ -1,6 +1,6 @@
 ## CAF plotter
 
-# Preliminary attempt at an analysis setup for reading DUNE NDLAr 2x2 CAF files.
+Preliminary attempt at an analysis setup for reading DUNE NDLAr 2x2 CAF files.
 
 ## Usage:
 
