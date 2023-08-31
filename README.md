@@ -20,4 +20,4 @@ Compile:
 
 Run it:
 
-'./simple_plotter <input_rootfile_list> <output_rootfile.root>``
+`./simple_plotter <input_rootfile_list> <output_rootfile.root>`
