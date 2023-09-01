@@ -9,9 +9,10 @@
 
 int caf_plotter(std::string input_file_list, std::string output_rootfile){
 
-  //Define histograms;
+  //Define histograms
   TH1D *part_energy_hist = new TH1D("recpart_energy", "Reco particle energy in GeV", 100, 0, 1);
 
+  //Give an input list
   std::ifstream caf_list(input_file_list.c_str());
 
   //Check if input list is present
@@ -19,6 +20,7 @@ int caf_plotter(std::string input_file_list, std::string output_rootfile){
 	std::cerr << Form("File %s not found", input_file_list.c_str()) << std::endl;
 	return 1;
   }
+
   //Add files to CAF chain from input list
   std::string tmp;
   TChain *caf_chain = new TChain("cafTree");
@@ -48,12 +50,13 @@ int caf_plotter(std::string input_file_list, std::string output_rootfile){
 
 	for(unsigned long nixn = 0; nixn < sr->common.ixn.ndlp; nixn++){ //loop over interactions
 		for(long npart=0; npart < sr->common.ixn.dlp[nixn].part.ndlp; npart++){ //loop over particles
-			if(!sr->common.ixn.dlp[nixn].part.dlp[npart].primary) continue; // just select primary particles
+			if(!sr->common.ixn.dlp[nixn].part.dlp[npart].contained) continue; // just select contained particles
 			part_energy_hist->Fill(sr->common.ixn.dlp[nixn].part.dlp[npart].E);
 		} //end for particles
 	} //end for interactions
   }// end for spills
 
+  //Create output file and write your histograms
   TFile *caf_out_file = new TFile(output_rootfile.c_str(), "recreate");
   part_energy_hist->Write();
   caf_out_file->Close();
