@@ -1,4 +1,4 @@
-#File locations
+# File locations
 
 Run used: Minirun3 (half of the events ~ 30k)
 
@@ -12,10 +12,10 @@ CAF files used for this tutorial:
 Structured CAF rootfiles: `/dune/data/users/skumara/Datafiles_2x2/CAF_rootfiles/minirun3_30k/notruth/*.root`
 Flat CAF rootfiles: `/dune/data/users/skumara/Datafiles_2x2/CAF_rootfiles/minirun3_30k/notruth/flat/*.root`
 
-#Using a simple macro to plot from CAFs
+# Using a simple macro to plot from CAFs
 
-*Clone this repository
-*Example macro: `simple_plotter.cc`
-*Setup environment and compile: `./compile_simple.sh`
-*Make an input list of CAF files
-*Run the code: `./simple_plotter` <input.list> <output.root>
+* Clone this repository
+* Example macro: `simple_plotter.cc`
+* Setup environment and compile: `./compile_simple.sh`
+* Make an input list of CAF files
+* Run the code: `./simple_plotter` <input.list> <output.root>
