@@ -14,7 +14,7 @@ Set up the environment and compile the code:
 
 ### Using a simple CAF plotter for reference:
 
-Compile:
+Set up the environment and compile the code:
 
 `./compile_simple.sh`
 
