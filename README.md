@@ -16,7 +16,7 @@ Set up the environment and compile the code:
 
 Compile:
 
-`g++ -std=c++17 -O2 -g -pedantic -Wall ``root-config --cflags --glibs`` simple_caf_plotter.cc -o simple_plotter -I/cvmfs/dune.opensciencegrid.org/products/dune/duneanaobj/v03_01_00/include`
+`./compile_simple.sh`
 
 Run it:
 
