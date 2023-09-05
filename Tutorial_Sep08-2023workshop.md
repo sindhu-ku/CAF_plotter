@@ -8,7 +8,7 @@ MLreco h5 files: `/dune/data/users/skumara/Datafiles_2x2/MLreco_h5files/minirun3
 
 GENIE contained: `/pnfs/dune/tape_backed/users/mkramer/prod/MiniRun3/MiniRun3_1E19_RHC.nu/GENIE/*.root`
 
-GENIE uncontained: '/pnfs/dune/tape_backed/users/mkramer/prod/MiniRun3/MiniRun3_1E19_RHC.rock/GENIE/*.root`
+GENIE uncontained: `/pnfs/dune/tape_backed/users/mkramer/prod/MiniRun3/MiniRun3_1E19_RHC.rock/GENIE/*.root`
 
 CAF files:
 
@@ -23,14 +23,12 @@ Flat CAF rootfiles: `/dune/data/users/skumara/Datafiles_2x2/CAF_rootfiles/miniru
 * Setup environment and compile: `./compile_simple.sh`
 * Make an input list of CAF files:
 `ls /dune/data/users/skumara/Datafiles_2x2/CAF_rootfiles/minirun3_30k/notruth/*.root >> input.list`
-* Run the code: `./simple_plotter` input.list output_test.root
+* Run the code: `./simple_plotter input.list output_test.root`
 
 ## Using the "framework"
 
 * Setup environment and compile: `./compile.sh`
-* Make an input list of CAF files:
-`ls /dune/data/users/skumara/Datafiles_2x2/CAF_rootfiles/minirun3_30k/notruth/*.root >> input.list`
-* Run the code: `./plotter` input.list output_test.root
+* Run the code: `./plotter input.list output_test.root`
 
 ### Code breakdown:
 
