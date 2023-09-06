@@ -2,22 +2,18 @@
 
 Preliminary attempt at an analysis setup for reading DUNE NDLAr 2x2 CAF files.
 
-### Usage:
+## Usage:
 
-Set up the environment and compile the code:
+### Set up the environment:
 
-`./compile.sh`
+`source setup.sh`
+
+### Compile the code:
+
+Simple macro: `./compile_simple.sh`
+"Framework": `./compile.sh`
 
 ### Running the code:
 
-`./plotter <input_rootfile_list> <output_rootfile.root>`
-
-### Using a simple CAF plotter for reference:
-
-Set up the environment and compile the code:
-
-`./compile_simple.sh`
-
-Run it:
-
-`./simple_plotter <input_rootfile_list> <output_rootfile.root>`
+Simple macro: `./simple_plotter <input_rootfile_list> <output_rootfile.root>`
+"Framework":  `./plotter <input_rootfile_list> <output_rootfile.root>`
