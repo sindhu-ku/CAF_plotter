@@ -39,13 +39,13 @@ void CAFPlotter::process() {
 		for(long unsigned npart = 0; npart < sr->common.ixn.dlp[nixn].part.dlp.size(); npart++){ //loop over reconstructed particles
 			//Write cuts for reco particles here
 			RecoPart recp_cuts = applyCuts(sr,nixn, npart);
-			//bool contained = recp_cuts.contained; //None of them are contained unfortunately
-			bool primary = recp_cuts.primary;
+			bool contained = recp_cuts.contained;
 		
 			//Fill reco particle histograms
-        	        if(primary) HistogramManager::fillRecoPartHistograms(histograms, sr, nixn, npart);
+        	        if(contained) HistogramManager::fillRecoPartHistograms(histograms, sr, nixn, npart);
 		}
-		for(long unsigned ntrack = 0; ntrack < sr->nd.lar.dlp[nixn].tracks.size(); ntrack++){ //loop over reconstructed tracks
+		
+			for(long unsigned ntrack = 0; ntrack < sr->nd.lar.dlp[nixn].tracks.size(); ntrack++){ //loop over reconstructed tracks
 			HistogramManager::fillRecoTracksHistograms(histograms, sr, nixn, ntrack);
 		}
 	}
