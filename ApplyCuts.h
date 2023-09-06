@@ -3,6 +3,14 @@
 
 #include "duneanaobj/StandardRecord/StandardRecord.h"
 
-bool ApplyCuts(const caf::StandardRecord* sr, int nixn, int npart);
-
+struct RecoPart {
+	bool contained;
+        bool primary;
+};
+struct RecoIxn {
+	bool skip_naninf;
+};
+        
+RecoPart applyCuts(const caf::StandardRecord* sr, int nixn, int npart);
+RecoIxn applyCuts(const caf::StandardRecord* sr, int nixn);
 #endif // APPLYCUTS_H
