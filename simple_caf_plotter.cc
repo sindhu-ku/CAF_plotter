@@ -50,7 +50,7 @@ int caf_plotter(std::string input_file_list, std::string output_rootfile){
 
 	for(long unsigned nixn = 0; nixn < sr->common.ixn.dlp.size(); nixn++){ //loop over interactions
 		for(long unsigned npart=0; npart < sr->common.ixn.dlp[nixn].part.dlp.size(); npart++){ //loop over particles
-			if(!sr->common.ixn.dlp[nixn].part.dlp[npart].primary) continue; // just select contained particles
+			if(!sr->common.ixn.dlp[nixn].part.dlp[npart].contained) continue; // just select contained particles
 			part_energy_hist->Fill(sr->common.ixn.dlp[nixn].part.dlp[npart].E);
 		} //end for particles
 	} //end for interactions
