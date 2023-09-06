@@ -4,7 +4,6 @@
 #include <string>
 #include "HistogramManager.h"
 #include "TreeLoader.h"
-#include "ApplyCuts.h"
 #include "TChain.h"
 
 class CAFPlotter {

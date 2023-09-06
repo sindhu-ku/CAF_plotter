@@ -1,4 +1,5 @@
 #include "CAFPlotter.h"
+#include "ApplyCuts.h"
 #include "TFile.h"
 #include <iostream>
 #include <fstream>
@@ -8,30 +9,50 @@ CAFPlotter::CAFPlotter(const std::string& input_file_list, const std::string& ou
       caf_chain_(nullptr) {}
 
 void CAFPlotter::process() {
+    //Load CAF trees
     caf_chain_ = TreeLoader::loadTree(input_file_list_);
     if (!caf_chain_) {
         return;
     }
-
+    
+    //Define histograms
     HistogramCollection histograms = HistogramManager::defineHistograms();
     
+    //Link Standard Record
     caf::StandardRecord* sr = nullptr;
     caf_chain_->SetBranchAddress("rec", &sr);
 
     long Nentries = caf_chain_->GetEntries();
     std::cout << "Total number of spills = " << Nentries << std::endl;
 
+    //Event loop
     for (long n = 0; n < Nentries; n++) { // loop over spills/triggers
         if (n % 10000 == 0) std::cout << "Processing trigger " << n << " of " << Nentries << std::endl; 
         caf_chain_->GetEntry(n);
-	for(long unsigned nixn = 0; nixn < sr->common.ixn.ndlp; nixn++){ //loop over interactions
-		for(long npart = 0; npart < sr->common.ixn.dlp[nixn].part.ndlp; npart++){ //loop over particles
-        		if (ApplyCuts(sr, nixn, npart)) HistogramManager::fillHistograms(histograms, sr, nixn, npart);
+	for(long unsigned nixn = 0; nixn < sr->common.ixn.dlp.size(); nixn++){ //loop over reconstructed interactions
+		RecoIxn recixn_cuts = applyCuts(sr, nixn);
+		bool skip_naninf = recixn_cuts.skip_naninf; //skipping values that are nan/inf for now, issue needs more study 
+
+		//Fill reco interaction related histograms here
+		if (skip_naninf) HistogramManager::fillRecoIxnHistograms(histograms, sr, nixn);
+
+		for(long unsigned npart = 0; npart < sr->common.ixn.dlp[nixn].part.dlp.size(); npart++){ //loop over reconstructed particles
+			//Write cuts for reco particles here
+			RecoPart recp_cuts = applyCuts(sr,nixn, npart);
+			//bool contained = recp_cuts.contained; //None of them are contained unfortunately
+			bool primary = recp_cuts.primary;
+		
+			//Fill reco particle histograms
+        	        if(primary) HistogramManager::fillRecoPartHistograms(histograms, sr, nixn, npart);
+		}
+		for(long unsigned ntrack = 0; ntrack < sr->nd.lar.dlp[nixn].tracks.size(); ntrack++){ //loop over reconstructed tracks
+			HistogramManager::fillRecoTracksHistograms(histograms, sr, nixn, ntrack);
 		}
 	}
         
     }
-
+    
+    //Write histograms
     HistogramManager::writeHistograms(histograms, output_rootfile_);
     
     if (caf_chain_) {
