@@ -5,20 +5,27 @@ Run used: Minirun4
 Inputs for ND_CAFMaker:
 
 * MLreco h5 files:
-```/dune/data/users/drielsma/minirun4/*.h5
+```
+/dune/data/users/drielsma/minirun4/*.h5
 ```
 
 CAF files:
 
 * Structured CAF rootfiles without any truth:
-  ```/dune/data/users/skumara/Datafiles_2x2/CAF_rootfiles/minirun4/notruth/*.root```
+  ```
+  /dune/data/users/skumara/Datafiles_2x2/CAF_rootfiles/minirun4/notruth/*.root
+  ```
 * Flat CAF rootfiles with pass through truth from reco:
-  ```/dune/data/users/skumara/Datafiles_2x2/CAF_rootfiles/minirun4/noGENIEtruth/flat/*.root```
+  ```
+  /dune/data/users/skumara/Datafiles_2x2/CAF_rootfiles/minirun4/noGENIEtruth/flat/*.root
+  ```
 
 # Preparation
 
-* Clone this repository: `git clone https://github.com/sindhu-ku/CAF_plotter.git`
-* Set up environment: `source setup.sh`
+* Clone this repository:
+  ```git clone https://github.com/sindhu-ku/CAF_plotter.git```
+* Set up environment:
+  ```source setup.sh```
 
 # What is in this repository
 
@@ -29,13 +36,24 @@ CAF files:
 # Plotting structured CAFs
 
 * Make an input list of CAF files:
-`ls /dune/data/users/skumara/Datafiles_2x2/CAF_rootfiles/minirun4/notruth/*.root >> input_str-caf_notruth.list`
+```
+ls /dune/data/users/skumara/Datafiles_2x2/CAF_rootfiles/minirun4/notruth/*.root >> input_str-caf_notruth.list
+```
 
 ## Using a simple macro
 
-* Go to directory: `cd simple_macro`
-* Compile: `./compile_simple.sh`
-* Run the code: `./simple_plotter ../input_str-caf_notruth.list output_simple_minirun4.root`
+* Go to directory:
+  ```
+  cd simple_macro
+  ```
+* Compile:
+  ```
+  ./compile_simple.sh
+  ```
+* Run the code:
+  ```
+  ./simple_plotter ../input_str-caf_notruth.list output_simple_minirun4.root
+  ```
 
 ## Using the "framework"
 
