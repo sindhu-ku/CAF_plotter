@@ -58,6 +58,7 @@ ls /dune/data/users/skumara/Datafiles_2x2/CAF_rootfiles/minirun4/notruth/*.root 
   ```
   ./simple_plotter ../input_str-caf_notruth.list output_simple_minirun4.root
   ```
+* This should produce an output rootfile with the contained reco particle energy 
 
 ## Using the "framework"
 
@@ -73,6 +74,7 @@ ls /dune/data/users/skumara/Datafiles_2x2/CAF_rootfiles/minirun4/notruth/*.root 
   ```
   ./plotter input_str-caf_notruth.list output_minirun4_notruth.root plots_minirun4
   ```
+* This should produce an output rootfile and png files of the above-mentioned histograms
   
 # Plotting flat CAFs
 
