@@ -5,9 +5,9 @@ Run used: Minirun4
 Inputs for ND_CAFMaker:
 
 * MLreco h5 files:
-```
-/dune/data/users/drielsma/minirun4/*.h5
-```
+ ```
+ /dune/data/users/drielsma/minirun4/*.h5
+ ```
 
 CAF files:
 
