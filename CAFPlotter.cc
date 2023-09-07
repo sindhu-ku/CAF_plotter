@@ -4,9 +4,10 @@
 #include <iostream>
 #include <fstream>
 
-CAFPlotter::CAFPlotter(const std::string& input_file_list, const std::string& output_rootfile)
-    : input_file_list_(input_file_list), output_rootfile_(output_rootfile),
+CAFPlotter::CAFPlotter(const std::string& input_file_list, const std::string& output_rootfile, const std::string& output_plots_folder)
+    : input_file_list_(input_file_list), output_rootfile_(output_rootfile), output_plots_folder_(output_plots_folder),
       caf_chain_(nullptr) {}
+
 
 void CAFPlotter::process() {
     //Load CAF trees
@@ -14,6 +15,7 @@ void CAFPlotter::process() {
     if (!caf_chain_) {
         return;
     }
+    std::cout << "Total number of CAF trees = " << caf_chain_->GetNtrees() << std::endl;
     
     //Define histograms
     HistogramCollection histograms = HistogramManager::defineHistograms();
@@ -52,8 +54,9 @@ void CAFPlotter::process() {
         
     }
     
-    //Write histograms
+    //Write and plot histograms
     HistogramManager::writeHistograms(histograms, output_rootfile_);
+    HistogramManager::plotHistograms(histograms, output_plots_folder_);
     
     if (caf_chain_) {
         delete caf_chain_;
