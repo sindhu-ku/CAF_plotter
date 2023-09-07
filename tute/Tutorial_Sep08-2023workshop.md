@@ -1,34 +1,56 @@
-## File locations
+# File locations
 
-Run used: Minirun3 (half of the events ~ 30k)
+Run used: Minirun4
 
 Inputs for ND_CAFMaker:
 
-* MLreco h5 files: `/dune/data/users/skumara/Datafiles_2x2/MLreco_h5files/minirun3_30k/*.h5`
-
-* GENIE contained: `/pnfs/dune/tape_backed/users/mkramer/prod/MiniRun3/MiniRun3_1E19_RHC.nu/GENIE/*.root`
-
-* GENIE uncontained: `/pnfs/dune/tape_backed/users/mkramer/prod/MiniRun3/MiniRun3_1E19_RHC.rock/GENIE/*.root`
+* MLreco h5 files: `/dune/data/users/drielsma/minirun4/*.h5`
 
 CAF files:
 
-* Structured CAF rootfiles: `/dune/data/users/skumara/Datafiles_2x2/CAF_rootfiles/minirun3_30k/notruth/*.root`
+* Structured CAF rootfiles without any truth: `/dune/data/users/skumara/Datafiles_2x2/CAF_rootfiles/minirun4/notruth/*.root`
 
-* Flat CAF rootfiles: `/dune/data/users/skumara/Datafiles_2x2/CAF_rootfiles/minirun3_30k/notruth/flat/*.root`
+* Flat CAF rootfiles with pass through truth from reco: `/dune/data/users/skumara/Datafiles_2x2/CAF_rootfiles/minirun4/noGENIEtruth/flat/*.root`
 
-## Using a simple macro to plot from CAFs
+# Preparation
 
 * Clone this repository: `git clone https://github.com/sindhu-ku/CAF_plotter.git`
-* Example macro: `simple_caf_plotter.cc`
-* Setup environment and compile: `./compile_simple.sh`
+
+* Set up environment: `source setup.sh`
+
+# What is in this repository
+
+*simple macro directory: A simple C++ macro that plots the energy of contained reconstructed particles (works on DUNE gpvm)
+
+*python_flatCAF directory: Plots truth and reco interaction vertex x from flat CAFs using uproot and pandas (does not work on DUNE gpvm)
+
+*main directory: something framework-y that manages histograms and cuts in different Classes. Writes and plots the following histograms: contained reco particle energy, interaction vertices, calorimetric energy vs track length for reconstructed tracks (works on DUNE gpvm) 
+
+# Plotting structured CAFs
+
 * Make an input list of CAF files:
-`ls /dune/data/users/skumara/Datafiles_2x2/CAF_rootfiles/minirun3_30k/notruth/*.root >> input.list`
-* Run the code: `./simple_plotter input.list output_test.root`
+`ls /dune/data/users/skumara/Datafiles_2x2/CAF_rootfiles/minirun4/notruth/*.root >> input_str-caf_notruth.list`
+
+## Using a simple macro
+
+* Go to directory: `cd simple_macro`
+* Compile: `./compile_simple.sh`
+* Run the code: `./simple_plotter ../input_str-caf_notruth.list output_simple_minirun4.root`
 
 ## Using the "framework"
 
-* Setup environment and compile: `./compile.sh`
-* Run the code: `./plotter input.list output_test.root`
+* Go to main directory
+* Compile: `./compile.sh`
+* Run the code: `./plotter input_str-caf_notruth.list output_minirun4_notruth.root plots_minirun4`
+* 
+# Plotting flat CAFs
 
-### Code breakdown:
+The python code unfortunately does not work on gpvm due to uproot and possibly panda dependecies. Make sure you have the dependencies on your computer if you are planning on using it
+
+* Download a flat CAF file on your computer: `scp <username>@dunegpvm07.fnal.gov:/dune/data/users/skumara/Datafiles_2x2/CAF_rootfiles/minirun4/noGENIEtruth/flat/outputCAF_notruth_27023276_40.flat.root` or directly from the workshop indico
+* Go to directory: `cd python_flatCAF`
+* Run the code: `python3 plot_flat_caf.py outputCAF_notruth_27023276_40.flat.root
+* You should have file named `reco_vs_truth_ixn_vtx_x.png` now
+
+
 
