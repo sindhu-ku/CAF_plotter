@@ -9,21 +9,17 @@ Inputs for ND_CAFMaker:
 CAF files:
 
 * Structured CAF rootfiles without any truth: `/dune/data/users/skumara/Datafiles_2x2/CAF_rootfiles/minirun4/notruth/*.root`
-
 * Flat CAF rootfiles with pass through truth from reco: `/dune/data/users/skumara/Datafiles_2x2/CAF_rootfiles/minirun4/noGENIEtruth/flat/*.root`
 
 # Preparation
 
 * Clone this repository: `git clone https://github.com/sindhu-ku/CAF_plotter.git`
-
 * Set up environment: `source setup.sh`
 
 # What is in this repository
 
 * simple macro directory: A simple C++ macro that plots the energy of contained reconstructed particles (works on DUNE gpvm)
-
 * python_flatCAF directory: Plots truth and reco interaction vertex x from flat CAFs using uproot and pandas (does not work on DUNE gpvm)
-
 * main directory: something framework-y that manages histograms and cuts in different Classes. Writes and plots the following histograms: contained reco particle energy, interaction vertices, calorimetric energy vs track length for reconstructed tracks (works on DUNE gpvm) 
 
 # Plotting structured CAFs
@@ -39,17 +35,17 @@ CAF files:
 
 ## Using the "framework"
 
-* Go to main directory
+* Go to main directory: `cd ..`
 * Compile: `./compile.sh`
 * Run the code: `./plotter input_str-caf_notruth.list output_minirun4_notruth.root plots_minirun4`
-* 
+  
 # Plotting flat CAFs
 
-The python code unfortunately does not work on gpvm due to uproot and possibly panda dependecies. Make sure you have the dependencies on your computer if you are planning on using it
+The python code unfortunately does not work on gpvm due to uproot and possibly panda dependencies. Make sure you have the dependencies on your computer if you are planning on using it.
 
-* Download a flat CAF file on your computer: `scp <username>@dunegpvm07.fnal.gov:/dune/data/users/skumara/Datafiles_2x2/CAF_rootfiles/minirun4/noGENIEtruth/flat/outputCAF_notruth_27023276_40.flat.root` or directly from the workshop indico
+* Download a flat CAF file on your computer directly from workshop indico or: `scp <username>@dunegpvm07.fnal.gov:/dune/data/users/skumara/Datafiles_2x2/CAF_rootfiles/minirun4/noGENIEtruth/flat/outputCAF_notruth_27023276_40.flat.root`
 * Go to directory: `cd python_flatCAF`
-* Run the code: `python3 plot_flat_caf.py outputCAF_notruth_27023276_40.flat.root
+* Run the code: `python3 plot_flat_caf.py outputCAF_notruth_27023276_40.flat.root`
 * You should have file named `reco_vs_truth_ixn_vtx_x.png` now
 
 
