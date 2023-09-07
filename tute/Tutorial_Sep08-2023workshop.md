@@ -20,11 +20,11 @@ CAF files:
 
 # What is in this repository
 
-*simple macro directory: A simple C++ macro that plots the energy of contained reconstructed particles (works on DUNE gpvm)
+* simple macro directory: A simple C++ macro that plots the energy of contained reconstructed particles (works on DUNE gpvm)
 
-*python_flatCAF directory: Plots truth and reco interaction vertex x from flat CAFs using uproot and pandas (does not work on DUNE gpvm)
+* python_flatCAF directory: Plots truth and reco interaction vertex x from flat CAFs using uproot and pandas (does not work on DUNE gpvm)
 
-*main directory: something framework-y that manages histograms and cuts in different Classes. Writes and plots the following histograms: contained reco particle energy, interaction vertices, calorimetric energy vs track length for reconstructed tracks (works on DUNE gpvm) 
+* main directory: something framework-y that manages histograms and cuts in different Classes. Writes and plots the following histograms: contained reco particle energy, interaction vertices, calorimetric energy vs track length for reconstructed tracks (works on DUNE gpvm) 
 
 # Plotting structured CAFs
 
