@@ -22,10 +22,14 @@ CAF files:
 
 # Preparation
 
-* Clone this repository:
-  ```git clone https://github.com/sindhu-ku/CAF_plotter.git```
+* Clone this repository on DUNE gpvm:
+  ```
+  git clone https://github.com/sindhu-ku/CAF_plotter.git
+  ```
 * Set up environment:
-  ```source setup.sh```
+  ```
+  source setup.sh
+  ```
 
 # What is in this repository
 
@@ -57,17 +61,35 @@ ls /dune/data/users/skumara/Datafiles_2x2/CAF_rootfiles/minirun4/notruth/*.root 
 
 ## Using the "framework"
 
-* Go to main directory: `cd ..`
-* Compile: `./compile.sh`
-* Run the code: `./plotter input_str-caf_notruth.list output_minirun4_notruth.root plots_minirun4`
+* Go to main directory:
+  ```
+  cd ..
+  ```
+* Compile:
+  ```
+  ./compile.sh
+  ```
+* Run the code:
+  ```
+  ./plotter input_str-caf_notruth.list output_minirun4_notruth.root plots_minirun4
+  ```
   
 # Plotting flat CAFs
 
 The python code unfortunately does not work on gpvm due to uproot and possibly panda dependencies. Make sure you have the dependencies on your computer if you are planning on using it.
 
-* Download a flat CAF file on your computer directly from workshop indico or: `scp <username>@dunegpvm07.fnal.gov:/dune/data/users/skumara/Datafiles_2x2/CAF_rootfiles/minirun4/noGENIEtruth/flat/outputCAF_notruth_27023276_40.flat.root`
-* Go to directory: `cd python_flatCAF`
-* Run the code: `python3 plot_flat_caf.py outputCAF_notruth_27023276_40.flat.root`
+* Download a flat CAF file on your computer directly from workshop indico or:
+  ```
+  scp <username>@dunegpvm07.fnal.gov:/dune/data/users/skumara/Datafiles_2x2/CAF_rootfiles/minirun4/noGENIEtruth/flat/outputCAF_notruth_27023276_40.flat.root
+  ```
+* Go to directory:
+  ```
+  cd python_flatCAF
+  ```
+* Run the code:
+  ```
+  python3 plot_flat_caf.py outputCAF_notruth_27023276_40.flat.root
+  ```
 * You should have file named `reco_vs_truth_ixn_vtx_x.png` now
 
 
