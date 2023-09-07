@@ -4,12 +4,16 @@ Run used: Minirun4
 
 Inputs for ND_CAFMaker:
 
-* MLreco h5 files: `/dune/data/users/drielsma/minirun4/*.h5`
+* MLreco h5 files:
+```/dune/data/users/drielsma/minirun4/*.h5
+```
 
 CAF files:
 
-* Structured CAF rootfiles without any truth: `/dune/data/users/skumara/Datafiles_2x2/CAF_rootfiles/minirun4/notruth/*.root`
-* Flat CAF rootfiles with pass through truth from reco: `/dune/data/users/skumara/Datafiles_2x2/CAF_rootfiles/minirun4/noGENIEtruth/flat/*.root`
+* Structured CAF rootfiles without any truth:
+  ```/dune/data/users/skumara/Datafiles_2x2/CAF_rootfiles/minirun4/notruth/*.root```
+* Flat CAF rootfiles with pass through truth from reco:
+  ```/dune/data/users/skumara/Datafiles_2x2/CAF_rootfiles/minirun4/noGENIEtruth/flat/*.root```
 
 # Preparation
 
