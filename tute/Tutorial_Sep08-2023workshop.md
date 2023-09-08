@@ -84,7 +84,7 @@ ls /dune/data/users/skumara/Datafiles_2x2/CAF_rootfiles/minirun4/notruth/*.root 
   
 ## Plotting flat CAFs
 
-The python code unfortunately does not work on gpvm due to uproot and possibly panda dependencies. Make sure you have the dependencies on your computer if you are planning on using it.
+The python code unfortunately does not work on gpvm due to uproot and possibly other dependencies. Make sure you have the dependencies on your computer if you are planning on using it.
 
 * Download just the python script in the python_flatCAF directory on your computer
 * Download a flat CAF file on your computer directly from workshop indico or:
