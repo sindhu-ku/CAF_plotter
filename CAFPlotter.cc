@@ -47,7 +47,7 @@ void CAFPlotter::process() {
         	        if(contained) HistogramManager::fillRecoPartHistograms(histograms, sr, nixn, npart);
 		}
 		
-			for(long unsigned ntrack = 0; ntrack < sr->nd.lar.dlp[nixn].tracks.size(); ntrack++){ //loop over reconstructed tracks
+		for(long unsigned ntrack = 0; ntrack < sr->nd.lar.dlp[nixn].tracks.size(); ntrack++){ //loop over reconstructed tracks
 			HistogramManager::fillRecoTracksHistograms(histograms, sr, nixn, ntrack);
 		}
 	}
