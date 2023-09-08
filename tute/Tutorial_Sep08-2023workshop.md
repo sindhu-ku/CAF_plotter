@@ -86,10 +86,7 @@ ls /dune/data/users/skumara/Datafiles_2x2/CAF_rootfiles/minirun4/notruth/*.root 
 
 The python code unfortunately does not work on gpvm due to uproot and possibly panda dependencies. Make sure you have the dependencies on your computer if you are planning on using it.
 
-* Go to directory:
-  ```
-  cd python_flatCAF
-  ```
+* Download just the python script in the python_flatCAF directory on your computer
 * Download a flat CAF file on your computer directly from workshop indico or:
   ```
   scp <username>@dunegpvm07.fnal.gov:/dune/data/users/skumara/Datafiles_2x2/CAF_rootfiles/minirun4/noGENIEtruth/flat/outputCAF_notruth_27023276_40.flat.root .
