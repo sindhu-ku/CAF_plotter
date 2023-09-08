@@ -1,4 +1,10 @@
-# File locations
+## Diclaimers
+
+* This is meant to show you how you can read CAFs on your own. The files and codes are in no means the final versions!
+* Running the scripts is pretty easy, the main goal is to make sure you can do it on your own in your own analysis, so make sure you can understand the simple C++ and python scripts.
+* All of these were written in the past few days, they are definitely not perfect.
+
+## File locations
 
 Run used: Minirun4
 
@@ -20,7 +26,7 @@ CAF files:
   /dune/data/users/skumara/Datafiles_2x2/CAF_rootfiles/minirun4/noGENIEtruth/flat/*.root
   ```
 
-# Preparation
+## Preparation
 
 * Clone this repository on DUNE gpvm:
   ```
@@ -31,20 +37,20 @@ CAF files:
   source setup.sh
   ```
 
-# What is in this repository
+## What is in this repository
 
 * simple_macro directory: A simple C++ macro that plots the energy of contained reconstructed particles (works on DUNE gpvm)
 * python_flatCAF directory: Plots truth and reco interaction vertex x from flat CAFs using uproot and pandas (does not work on DUNE gpvm)
 * main directory: something framework-y that manages histograms and cuts in different Classes. Writes and plots the following histograms: contained reco particle energy, interaction vertices, calorimetric energy vs track length for reconstructed tracks (works on DUNE gpvm) 
 
-# Plotting structured CAFs
+## Plotting structured CAFs
 
 Make an input list of CAF files:
 ```
 ls /dune/data/users/skumara/Datafiles_2x2/CAF_rootfiles/minirun4/notruth/*.root >> input_str-caf_notruth.list
 ```
 
-## Using a simple macro
+### Using a simple macro
 
 * Go to directory:
   ```
@@ -60,7 +66,7 @@ ls /dune/data/users/skumara/Datafiles_2x2/CAF_rootfiles/minirun4/notruth/*.root 
   ```
 * This should produce an output rootfile with the contained reco particle energy 
 
-## Using the "framework"
+### Using the "framework"
 
 * Go to main directory:
   ```
@@ -76,7 +82,7 @@ ls /dune/data/users/skumara/Datafiles_2x2/CAF_rootfiles/minirun4/notruth/*.root 
   ```
 * This should produce an output rootfile and png files of the above-mentioned histograms
   
-# Plotting flat CAFs
+## Plotting flat CAFs
 
 The python code unfortunately does not work on gpvm due to uproot and possibly panda dependencies. Make sure you have the dependencies on your computer if you are planning on using it.
 
@@ -92,7 +98,7 @@ The python code unfortunately does not work on gpvm due to uproot and possibly p
   ```
   python3 plot_flat_caf.py outputCAF_notruth_27023276_40.flat.root
   ```
-* You should have file named `reco_vs_truth_ixn_vtx_x.png` now
+* You should have a file named `reco_vs_truth_ixn_vtx_x.png` now
 
 
 
