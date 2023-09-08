@@ -25,7 +25,7 @@ CAF files:
   ```
   /dune/data/users/skumara/Datafiles_2x2/CAF_rootfiles/minirun4/noGENIEtruth/flat/*.root
   ```
-If you want to know what all the different branches mean, see the object format for the `StandardRecord` objects is defined in [`duneanaobj`](https://github.com/DUNE/duneanaobj)
+If you want to know what all the different branches mean, see the object format for the `StandardRecord` objects defined in [`duneanaobj`](https://github.com/DUNE/duneanaobj)
 ## Preparation
 
 * Clone this repository on DUNE gpvm:
