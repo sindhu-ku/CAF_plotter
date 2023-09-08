@@ -1,7 +1,7 @@
 ## Diclaimers
 
 * This tutorial is meant to show you how you can read CAFs on your own. The files and codes are in no means the final versions!
-* Running the scripts is pretty easy, the main goal is to make sure you can do it on your own in your own analysis, so make sure you can understand the simple C++ and python scripts.
+* Running the scripts is pretty easy, the main goal is to make sure you can write your own analysis, so make sure you can understand the simple C++ and python scripts.
 * All of these were written in the past few days, they are definitely not perfect. This also means that I haven't actually analysed the files fully.
 
 ## File locations
