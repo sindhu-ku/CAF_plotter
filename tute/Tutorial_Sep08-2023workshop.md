@@ -8,7 +8,7 @@
 
 Run used: Minirun4
 
-Inputs for ND_CAFMaker:
+Inputs for `ND_CAFMaker`:
 
 * MLreco h5 files:
   ```
