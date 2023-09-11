@@ -22,3 +22,12 @@ RecoIxn applyCuts(const caf::StandardRecord* sr, int nixn) {
         return recixn;
 
 }
+RecoTrack applyCuts(const caf::StandardRecord* sr, int nixn, int ntrack, int partid) {
+
+	RecoTrack rect;
+        
+        rect.muon = (abs(sr->common.ixn.dlp[nixn].part.dlp[partid].pdg)  == 13);
+
+        return rect;
+
+}
