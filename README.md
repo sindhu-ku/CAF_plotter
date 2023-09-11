@@ -45,8 +45,8 @@ Preliminary attempt at an analysis setup for reading DUNE NDLAr 2x2 CAF files.
 
 The python code unfortunately does not work on gpvm due to uproot and possibly other dependencies. Make sure you have the dependencies on your computer if you are planning on using it.
 
-* Download just the python script in the python_flatCAF directory on your computer
-* Download a flat CAF file on your computer directly from workshop indico or:
+* Download the python script in the python_flatCAF directory on your computer
+* Download a flat CAF file on your computer directly:
   ```
   scp <username>@dunegpvm07.fnal.gov:/dune/data/users/skumara/Datafiles_2x2/CAF_rootfiles/minirun4/noGENIEtruth/flat/outputCAF_notruth_27023276_40.flat.root .
   ```
