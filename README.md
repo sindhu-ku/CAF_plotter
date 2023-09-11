@@ -41,7 +41,7 @@ Preliminary attempt at an analysis setup for reading DUNE NDLAr 2x2 CAF files.
   ```
 * This should produce an output rootfile and png files of the above-mentioned histograms
   
-## Plotting flat CAFs
+### Plotting flat CAFs
 
 The python code unfortunately does not work on gpvm due to uproot and possibly other dependencies. Make sure you have the dependencies on your computer if you are planning on using it.
 
