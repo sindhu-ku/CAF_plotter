@@ -37,7 +37,7 @@ Preliminary attempt at an analysis setup for reading DUNE NDLAr 2x2 CAF files.
   ```
 * Run the code:
   ```
-  ./plotter i <input_list> <output_rootfile> <output_plots_folder>`
+  ./plotter <input_list> <output_rootfile> <output_plots_folder>`
   ```
 * This should produce an output rootfile and png files of the above-mentioned histograms
   
