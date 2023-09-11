@@ -36,8 +36,8 @@ void HistogramManager::fillRecoPartHistograms(HistogramCollection& histograms, c
 }
 void HistogramManager::fillRecoTracksHistograms(HistogramCollection& histograms, const caf::StandardRecord* sr, int nixn, int ntrack){
     histograms.tracks_Ecalo_len->Fill(sr->nd.lar.dlp[nixn].tracks[ntrack].Evis, sr->nd.lar.dlp[nixn].tracks[ntrack].len_cm);
-    histograms.tracks_Ecalo_len->GetXaxis()->SetTitle("Track length [cm]");
-    histograms.tracks_Ecalo_len->GetYaxis()->SetTitle("Calorimetric energy [GeV]");
+    histograms.tracks_Ecalo_len->GetYaxis()->SetTitle("Track length [cm]");
+    histograms.tracks_Ecalo_len->GetXaxis()->SetTitle("Calorimetric energy [GeV]");
 
 }
 
