@@ -37,7 +37,7 @@ If you want to know more about all the different branches, see the object format
   source setup.sh
   ```
 
-## What is in this repository
+## What is in this repository (Version used for tutorial v1.0.0)
 
 * simple_macro directory: A simple C++ macro that plots the energy of contained reconstructed particles (works on DUNE gpvm)
 * python_flatCAF directory: Plots truth and reco interaction vertex x from flat CAFs using uproot and pandas (does not work on DUNE gpvm)
