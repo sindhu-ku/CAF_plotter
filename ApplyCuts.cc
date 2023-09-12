@@ -7,6 +7,7 @@ RecoPart applyCuts(const caf::StandardRecord* sr, int nixn, int npart) {
         
         recp.contained = sr->common.ixn.dlp[nixn].part.dlp[npart].contained;
         recp.primary = sr->common.ixn.dlp[nixn].part.dlp[npart].primary;
+        recp.muon = (abs(sr->common.ixn.dlp[nixn].part.dlp[npart].pdg)  == 13);
 
         return recp;
 
@@ -20,14 +21,5 @@ RecoIxn applyCuts(const caf::StandardRecord* sr, int nixn) {
                               !std::isnan(sr->common.ixn.dlp[nixn].vtx.z) && !std::isinf(sr->common.ixn.dlp[nixn].vtx.z));
 
         return recixn;
-
-}
-RecoTrack applyCuts(const caf::StandardRecord* sr, int nixn, int ntrack, int partid) {
-
-	RecoTrack rect;
-        
-        rect.muon = (abs(sr->common.ixn.dlp[nixn].part.dlp[partid].pdg)  == 13);
-
-        return rect;
 
 }
