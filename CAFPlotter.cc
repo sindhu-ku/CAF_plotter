@@ -61,8 +61,7 @@ void CAFPlotter::process() {
 
     
     //Write and plot histograms
-    HistogramManager::writeHistograms(histograms, output_rootfile_);
-    HistogramManager::plotHistograms(histograms, output_plots_folder_);
+    HistogramManager::plotWriteHistograms(histograms, output_plots_folder_, output_rootfile_);
     
     if (caf_chain_) {
         delete caf_chain_;
