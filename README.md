@@ -9,7 +9,7 @@ Preliminary attempt at an analysis setup for reading DUNE NDLAr 2x2 CAF files.
 `source setup.sh`
 
 
-### Using a simple macro with SRPorxy for structured and flat CAFs
+### Using a simple macro with SRProxy for structured and flat CAFs
 
 * Go to directory:
   ```
