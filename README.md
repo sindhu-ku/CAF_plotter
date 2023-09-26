@@ -9,7 +9,7 @@ Preliminary attempt at an analysis setup for reading DUNE NDLAr 2x2 CAF files.
 `source setup.sh`
 
 
-### Using a simple macro
+### Using a simple macro with SRPorxy for structured and flat CAFs
 
 * Go to directory:
   ```
@@ -19,13 +19,21 @@ Preliminary attempt at an analysis setup for reading DUNE NDLAr 2x2 CAF files.
   ```
   ./compile_simple.sh
   ```
+  (or)
+  ```
+  ./compile_simple_flat.sh
+  ```
 * Run the code:
   ```
-  ./simple_plotter <input_list> <output_rootfile>`
+  ./simple_plotter <input_list> <output_rootfile>
+  ```
+  (or)
+  ```
+  ./simple_plotter_flat <input_list> <output_rootfile>
   ```
 * This should produce an output rootfile with the contained reco particle energy 
 
-### Using the "framework"
+### Using the "framework" using StandardRecord.h (needs to be updated with SRProxy)
 
 * Go to main directory:
   ```
@@ -41,7 +49,7 @@ Preliminary attempt at an analysis setup for reading DUNE NDLAr 2x2 CAF files.
   ```
 * This should produce an output rootfile and png files of the above-mentioned histograms
   
-### Plotting flat CAFs
+### Plotting flat CAFs with python
 
 The python code unfortunately does not work on gpvm due to uproot and possibly other dependencies. Make sure you have the dependencies on your computer if you are planning on using it.
 
