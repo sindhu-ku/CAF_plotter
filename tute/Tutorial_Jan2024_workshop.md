@@ -65,9 +65,9 @@ Make an input list of CAF files:
 ls /dune/data/users/skumara/Datafiles_2x2/CAF_rootfiles/Picorun4.2/*.root >> structured_caf_Picorun4.2.list
 ```
 (or)
-
+```
 ls /dune/data/users/skumara/Datafiles_2x2/CAF_rootfiles/Picorun4.2/flat/*.root >> flat_caf_Picorun4.2.list
-
+```
 ### Using a simple macro
 
 * Go to directory:
