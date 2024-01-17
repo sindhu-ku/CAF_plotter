@@ -37,7 +37,7 @@ Preliminary attempt at an analysis setup for reading DUNE NDLAr 2x2 CAF files.
 
 * Go to main directory:
   ```
-  cd ..
+  cd old_intheworks
   ```
 * Compile:
   ```
