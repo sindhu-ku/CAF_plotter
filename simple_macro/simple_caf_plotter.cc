@@ -9,7 +9,7 @@
 
 int caf_plotter(std::string input_file_list, std::string output_rootfile){   
   //Define histograms
-  TH1D *part_energy_hist = new TH1D("recpart_energy", "Reco particle energy in GeV", 100, 0, 1);
+  TH1D *part_energy_hist = new TH1D("recpart_energy", "Reco particle energy of muons in GeV", 1000, 0, 1);
 
   //Give an input list
   std::ifstream caf_list(input_file_list.c_str());
@@ -55,9 +55,10 @@ int caf_plotter(std::string input_file_list, std::string output_rootfile){
     	}
         
  
-        if(treeIndex%100 == 0) std::cout << Form("Processing tree %d of %d", treeIndex+1, total_files) << std::endl;
+        if(treeIndex%10 == 0) std::cout << Form("Processing tree %d of %d", treeIndex+1, total_files) << std::endl;
  	
 	// Link SRProxy to the current CAF tree
+
  	caf::SRProxy sr(caf_tree, "");
 
  	int tree_entries = caf_tree->GetEntries();
@@ -67,17 +68,17 @@ int caf_plotter(std::string input_file_list, std::string output_rootfile){
  	       caf_tree->GetEntry(n); //Get spill from tree
 
  	       for(long unsigned int nixn = 0; nixn < sr.common.ixn.ndlp; nixn++){ //loop over interactions
+           
+	           	for(int npart=0; npart < sr.common.ixn.dlp[nixn].part.ndlp; npart++){ //loop over particles
 
-			for(int npart=0; npart < sr.common.ixn.dlp[nixn].part.ndlp; npart++){ //loop over particles
-
- 	       			if(!sr.common.ixn.dlp[nixn].part.dlp[npart].contained) continue; // just select contained particles
+ 	       			if(abs(sr.common.ixn.dlp[nixn].part.dlp[npart].pdg) != 13) continue; // just select muons
  	       			part_energy_hist->Fill(sr.common.ixn.dlp[nixn].part.dlp[npart].E);
-
  	       	 	} //end for particles
 
- 	       } //end for interactions
 
- 	 }// end for spills
+	       } //end for interactions
+ 	 
+         }// end for spills
  	
 	 global_n = global_n + tree_entries;
 	 treeIndex++;
