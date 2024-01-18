@@ -1,7 +1,7 @@
 ## CAF structure
 
 A quick overview of the CAF structure can be found [here](https://drive.google.com/file/d/1-jdDoc89lTVQGPX4RDChJjJKRoMrtY84/view?usp=sharing).
-If you want to know more about all the variables in the different branches, see the Doxygen page for the `StandardRecord` objects defined in [`duneanaobj`]([https://github.com/DUNE/duneanaobj](https://dune.github.io/duneanaobj/classcaf_1_1StandardRecord.html))
+If you want to know more about all the variables in the different branches, see the Doxygen page for the `StandardRecord` objects defined in [here](https://dune.github.io/duneanaobj/classcaf_1_1StandardRecord.html)
 
 ## How to make CAFs
 
@@ -9,11 +9,8 @@ Run used: Picorun 4.2
 
 MLreco inputs for [`ND_CAFMaker`](https://github.com/DUNE/ND_CAFMaker) that produces the CAF files:
 
-* MLreco h5 files:
-  ```
-  /dune/data/users/drielsma/minirun4/*.h5
-  ```
-* An example cfg file to produce CAFs: 
+* MLreco h5 files: `/dune/data/users/drielsma/minirun4/*.h5`
+* An example cfg file to produce CAFs: `/dune/app/users/skumara/CAFs/ND_CAFMaker/cfg/ndcafmakerjob_picorun.fcl`
 
 ## File locations
 
@@ -41,23 +38,20 @@ CAF files:
 
 ## What is in this repository (Version used for tutorial v2.0.0)
 
-* simple_macro directory:
 
-  -A simple C++ macro that plots the energy of reconstructed particles tagged as muons.
+* A C++ macro that plots the energy of reconstructed particles tagged as muons.
 
   -Can take structured or flat CAFs.
 
   -Works on DUNE gpvm and needs it.
   
-* python_flatCAF directory:
-
-  -Plots truth and reco interaction vertex x from flat CAFs using uproot and pandas.
+* A python script that plots truth and reco interaction energies from flat CAFs using uproot and pandas.
 
   -Can only take flat CAFs.
 
   -Does not work on DUNE gpvm and does not need it.
 
-## Plotting structured CAFs
+## C++ using SRProxy for structured and flat CAFs
 
 Make an input list of CAF files:
 ```
@@ -66,16 +60,10 @@ ls /dune/data/users/skumara/Datafiles_2x2/CAF_rootfiles/Picorun4.2/*.root >> str
 ```
 ls /dune/data/users/skumara/Datafiles_2x2/CAF_rootfiles/Picorun4.2/flat/*.root >> flat_caf_Picorun4.2.list
 ```
-### Using a simple C++ macro
 
-* Go to directory:
-  ```
-  cd simple_macro
-  ```
 * Compile:
   ```
   ./compile_simple.sh
-  ```
   ```
 * Run the code:
   ```
