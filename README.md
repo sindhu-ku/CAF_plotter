@@ -11,7 +11,6 @@ Preliminary attempt at an analysis setup for reading DUNE NDLAr 2x2 CAF files.
 
 ### Using a simple macro with SRProxy for structured and flat CAFs
 
-  ```
 * Compile:
   ```
   ./compile_simple.sh
