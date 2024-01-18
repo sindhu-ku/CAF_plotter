@@ -1,7 +1,7 @@
 ## CAF structure
 
 A quick overview of the CAF structure can be found [here](https://drive.google.com/file/d/1-jdDoc89lTVQGPX4RDChJjJKRoMrtY84/view?usp=sharing).
-If you want to know more about all the variables in the different branches, see the Doxygen page for the `StandardRecord` objects defined in [`here`](https://dune.github.io/duneanaobj/classcaf_1_1StandardRecord.html)
+If you want to know more about all the variables in the different branches, see the Doxygen page for the `StandardRecord` objects defined in [here](https://dune.github.io/duneanaobj/classcaf_1_1StandardRecord.html)
 
 ## How to make CAFs
 
