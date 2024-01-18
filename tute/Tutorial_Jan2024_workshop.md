@@ -9,11 +9,8 @@ Run used: Picorun 4.2
 
 MLreco inputs for [`ND_CAFMaker`](https://github.com/DUNE/ND_CAFMaker) that produces the CAF files:
 
-* MLreco h5 files:
-  ```
-  /dune/data/users/drielsma/minirun4/*.h5
-  ```
-* An example cfg file to produce CAFs: 
+* MLreco h5 files: `/dune/data/users/drielsma/minirun4/*.h5`
+* An example cfg file to produce CAFs: `/dune/app/users/skumara/CAFs/ND_CAFMaker/cfg/ndcafmakerjob_picorun.fcl`
 
 ## File locations
 
@@ -68,10 +65,6 @@ ls /dune/data/users/skumara/Datafiles_2x2/CAF_rootfiles/Picorun4.2/flat/*.root >
 ```
 ### Using a simple C++ macro
 
-* Go to directory:
-  ```
-  cd simple_macro
-  ```
 * Compile:
   ```
   ./compile_simple.sh
