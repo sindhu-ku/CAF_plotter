@@ -68,10 +68,6 @@ ls /dune/data/users/skumara/Datafiles_2x2/CAF_rootfiles/Picorun4.2/flat/*.root >
 ```
 ### Using a simple C++ macro
 
-* Go to directory:
-  ```
-  cd simple_macro
-  ```
 * Compile:
   ```
   ./compile_simple.sh
