@@ -38,23 +38,20 @@ CAF files:
 
 ## What is in this repository (Version used for tutorial v2.0.0)
 
-* simple_macro directory:
 
-  -A simple C++ macro that plots the energy of reconstructed particles tagged as muons.
+* A C++ macro that plots the energy of reconstructed particles tagged as muons.
 
   -Can take structured or flat CAFs.
 
   -Works on DUNE gpvm and needs it.
   
-* python_flatCAF directory:
-
-  -Plots truth and reco interaction vertex x from flat CAFs using uproot and pandas.
+* A python script that plots truth and reco interaction energies from flat CAFs using uproot and pandas.
 
   -Can only take flat CAFs.
 
   -Does not work on DUNE gpvm and does not need it.
 
-## Plotting structured CAFs
+## C++ using SRProxy for structured and flat CAFs
 
 Make an input list of CAF files:
 ```
@@ -63,7 +60,6 @@ ls /dune/data/users/skumara/Datafiles_2x2/CAF_rootfiles/Picorun4.2/*.root >> str
 ```
 ls /dune/data/users/skumara/Datafiles_2x2/CAF_rootfiles/Picorun4.2/flat/*.root >> flat_caf_Picorun4.2.list
 ```
-### Using a simple C++ macro
 
 * Compile:
   ```
