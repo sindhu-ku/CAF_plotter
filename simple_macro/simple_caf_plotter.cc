@@ -7,7 +7,7 @@
 #include "duneanaobj/StandardRecord/Proxy/SRProxy.h"
 
 
-int caf_plotter(std::string input_file_list, std::string output_rootfile){   
+int caf_plotter(std::string input_file_list, std::string output_rootfile, std::string type){   
   //Define histograms
   TH1D *part_energy_hist = new TH1D("recpart_energy", "Reco particle energy of muons in GeV", 1000, 0, 1);
 
@@ -58,8 +58,9 @@ int caf_plotter(std::string input_file_list, std::string output_rootfile){
         if(treeIndex%10 == 0) std::cout << Form("Processing tree %d of %d", treeIndex+1, total_files) << std::endl;
  	
 	// Link SRProxy to the current CAF tree
-
- 	caf::SRProxy sr(caf_tree, "");
+	std::string srproxy_string = "";
+	if(type=="flat") srproxy_string = "rec";
+ 	caf::SRProxy sr(caf_tree, srproxy_string.c_str());
 
  	int tree_entries = caf_tree->GetEntries();
 
@@ -98,15 +99,16 @@ int caf_plotter(std::string input_file_list, std::string output_rootfile){
 
 int main(int argc, char** argv){
 
-  if(argc!=3){
-    std::cout << "\n USAGE: " << argv[0] << "input_caf_file_list output_root_file\n" << std::endl;
+  if(argc!=4){
+    std::cout << "\n USAGE: " << argv[0] << "input_caf_file_list output_root_file type\n" << std::endl;
     return 1;
   }
 
   std::string input_file_list = argv[1];
   std::string output_rootfile = argv[2];
+  std::string type = argv[3];
 
-  caf_plotter(input_file_list, output_rootfile);
+  caf_plotter(input_file_list, output_rootfile, type);
 
   return 0;
 }
