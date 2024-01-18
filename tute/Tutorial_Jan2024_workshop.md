@@ -1,12 +1,11 @@
 ## CAF structure
 
 A quick overview of the CAF structure can be found [here](https://drive.google.com/file/d/1-jdDoc89lTVQGPX4RDChJjJKRoMrtY84/view?usp=sharing).
-If you want to know more about all the variables in the different branches, see the object format for the `StandardRecord` objects defined in [`duneanaobj`](https://github.com/DUNE/duneanaobj)
+If you want to know more about all the variables in the different branches, see the Doxygen page for the `StandardRecord` objects defined in [`duneanaobj`]([https://github.com/DUNE/duneanaobj](https://dune.github.io/duneanaobj/classcaf_1_1StandardRecord.html))
 
 ## How to make CAFs
 
 Run used: Picorun 4.2
-
 
 MLreco inputs for [`ND_CAFMaker`](https://github.com/DUNE/ND_CAFMaker) that produces the CAF files:
 
@@ -64,11 +63,10 @@ Make an input list of CAF files:
 ```
 ls /dune/data/users/skumara/Datafiles_2x2/CAF_rootfiles/Picorun4.2/*.root >> structured_caf_Picorun4.2.list
 ```
-(or)
 ```
 ls /dune/data/users/skumara/Datafiles_2x2/CAF_rootfiles/Picorun4.2/flat/*.root >> flat_caf_Picorun4.2.list
 ```
-### Using a simple macro
+### Using a simple C++ macro
 
 * Go to directory:
   ```
@@ -78,27 +76,24 @@ ls /dune/data/users/skumara/Datafiles_2x2/CAF_rootfiles/Picorun4.2/flat/*.root >
   ```
   ./compile_simple.sh
   ```
-  (or)
-  ```
-  ./compile_simple_flat.sh
   ```
 * Run the code:
   ```
-  ./simple_plotter ../structured_caf_Picorun4.2.list output_structured_picorun4.2.root
+  ./simple_plotter ../structured_caf_Picorun4.2.list output_structured_picorun4.2.root structured
   ```
   (or)
   ```
-  ./simple_plotter_flat ../flat_caf_Picorun4.2.list output_flat_picorun4.2.root
+  ./simple_plotter_flat ../flat_caf_Picorun4.2.list output_flat_picorun4.2.root flat
   ```
 
-* This should produce an output rootfile with the reco particle energy of muons.
-* This uses `SRProxy.h` that activates only the branches you need and is quicker. Do not recommend directly using `StandardRecord.h`
-* But, `TChain` breaks when using `SRProxy`. This is tackled in `CAFAna` in a better way.
-* The difference between the two macros is how you link the CAF tree to `SRProxy`:
+* This should produce output rootfiles with the reco particle energy of muons.
+* This uses `SRProxy.h` that activates only the branches you need and is quicker. Do not recommend directly using `StandardRecord.h`. Even faster if you use flat CAFs.
+* But, `TChain` breaks when using `SRProxy`, so it loops over files. This is tackled in `CAFAna` in a better way.
+* There is a difference in how you link the CAF tree to `SRProxy` for structured and flat CAFs:
 
   Structured:`caf::SRProxy sr(caf_tree, "");` Flat:`caf::SRProxy sr(caf_tree, "rec");`
   
-## Plotting flat CAFs
+## Python for flat CAFs
 
 The python code unfortunately does not work on gpvm due to uproot and possibly other dependencies. Make sure you have the dependencies on your computer if you are planning on using it.
 
