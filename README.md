@@ -19,35 +19,11 @@ Preliminary attempt at an analysis setup for reading DUNE NDLAr 2x2 CAF files.
   ```
   ./compile_simple.sh
   ```
-  (or)
-  ```
-  ./compile_simple_flat.sh
-  ```
 * Run the code:
   ```
-  ./simple_plotter <input_list> <output_rootfile>
-  ```
-  (or)
-  ```
-  ./simple_plotter_flat <input_list> <output_rootfile>
+  ./simple_plotter <input_list> <output_rootfile> <CAF_type>
   ```
 * This should produce an output rootfile with the contained reco particle energy 
-
-### Using the "framework" using StandardRecord.h (needs to be updated with SRProxy)
-
-* Go to main directory:
-  ```
-  cd old_intheworks
-  ```
-* Compile:
-  ```
-  ./compile.sh
-  ```
-* Run the code:
-  ```
-  ./plotter <input_list> <output_rootfile> <output_plots_folder>`
-  ```
-* This should produce an output rootfile and png files of the above-mentioned histograms
   
 ### Plotting flat CAFs with python
 
@@ -56,10 +32,10 @@ The python code unfortunately does not work on gpvm due to uproot and possibly o
 * Download the python script in the python_flatCAF directory on your computer
 * Download a flat CAF file on your computer directly:
   ```
-  scp <username>@dunegpvm07.fnal.gov:/dune/data/users/skumara/Datafiles_2x2/CAF_rootfiles/minirun4/noGENIEtruth/flat/outputCAF_notruth_27023276_40.flat.root .
+  scp <username>@dunegpvm07.fnal.gov:/dune/data/users/skumara/Datafiles_2x2/CAF_rootfiles/Picorun4.2/flat/PicoRun4.2_1E17_RHC.flow.00004.FLOW_CAF.flat.root .
   ```
 * Run the code:
   ```
-  python3 plot_flat_caf.py outputCAF_notruth_27023276_40.flat.root
+  python3 plot_flat_caf.py PicoRun4.2_1E17_RHC.flow.00004.FLOW_CAF.flat.root
   ```
-* You should have a file named `reco_vs_truth_ixn_vtx_x.png` now
+* You should have an output png file now
