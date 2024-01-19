@@ -9,7 +9,8 @@
 
 int caf_plotter(std::string input_file_list, std::string output_rootfile, std::string type){   
   //Define histograms
-  TH1D *part_energy_hist = new TH1D("recpart_energy", "Reco particle energy of muons in GeV", 1000, 0, 1);
+  TH1D *recopart_energy_hist = new TH1D("recpart_energy", "Reco particle energy of muons in GeV", 1000, 0, 1);
+  TH1D *truepart_vtx_x_hist = new TH1D("truepart_vtx_x", "True MLreco passthrough vertex x", 200, -100, 100);
 
   //Give an input list
   std::ifstream caf_list(input_file_list.c_str());
@@ -36,7 +37,7 @@ int caf_plotter(std::string input_file_list, std::string output_rootfile, std::s
   int treeIndex = 0; //total number of trees
 
   std::string tmp;
-  while(caf_list >> tmp){
+  while(caf_list >> tmp){ //loop over files
  	
 		
 	TFile *caf_file = new TFile(tmp.c_str(), "read");
@@ -59,7 +60,7 @@ int caf_plotter(std::string input_file_list, std::string output_rootfile, std::s
  	
 	// Link SRProxy to the current CAF tree
 	std::string srproxy_string = "";
-	if(type=="flat") srproxy_string = "rec";
+	if(type=="flat") srproxy_string = "rec"; //Different strings for structured and flar
  	caf::SRProxy sr(caf_tree, srproxy_string.c_str());
 
  	int tree_entries = caf_tree->GetEntries();
@@ -71,13 +72,16 @@ int caf_plotter(std::string input_file_list, std::string output_rootfile, std::s
  	       for(long unsigned int nixn = 0; nixn < sr.common.ixn.ndlp; nixn++){ //loop over interactions
            
 	           	for(int npart=0; npart < sr.common.ixn.dlp[nixn].part.ndlp; npart++){ //loop over particles
-
  	       			if(abs(sr.common.ixn.dlp[nixn].part.dlp[npart].pdg) != 13) continue; // just select muons
- 	       			part_energy_hist->Fill(sr.common.ixn.dlp[nixn].part.dlp[npart].E);
+ 	       			recopart_energy_hist->Fill(sr.common.ixn.dlp[nixn].part.dlp[npart].E); //fill reco particle energy
  	       	 	} //end for particles
 
 
 	       } //end for interactions
+ 	       for(long unsigned int nmc = 0; nmc < sr.mc.nnu; nmc++){ //loop over MC
+ 	       		truepart_vtx_x_hist->Fill(sr.mc.nu[nmc].vtx.x);//plot passthrough MLreco vertex
+			
+               }
  	 
          }// end for spills
  	
@@ -91,7 +95,8 @@ int caf_plotter(std::string input_file_list, std::string output_rootfile, std::s
 
   //Create output file and write your histograms
   TFile *caf_out_file = new TFile(output_rootfile.c_str(), "recreate");
-  part_energy_hist->Write();
+  recopart_energy_hist->Write();
+  truepart_vtx_x_hist->Write();
   caf_out_file->Close();
 
   return 1;  
