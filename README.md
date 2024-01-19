@@ -11,10 +11,6 @@ Preliminary attempt at an analysis setup for reading DUNE NDLAr 2x2 CAF files.
 
 ### Using a simple macro with SRProxy for structured and flat CAFs
 
-* Go to directory:
-  ```
-  cd simple_macro
-  ```
 * Compile:
   ```
   ./compile_simple.sh
@@ -31,7 +27,7 @@ Preliminary attempt at an analysis setup for reading DUNE NDLAr 2x2 CAF files.
   ```
   ./simple_plotter_flat <input_list> <output_rootfile>
   ```
-* This should produce an output rootfile with the contained reco particle energy 
+* This should produce an output rootfile with histograms
 
 ### Using the "framework" using StandardRecord.h (needs to be updated with SRProxy)
 
@@ -62,4 +58,4 @@ The python code unfortunately does not work on gpvm due to uproot and possibly o
   ```
   python3 plot_flat_caf.py outputCAF_notruth_27023276_40.flat.root
   ```
-* You should have a file named `reco_vs_truth_ixn_vtx_x.png` now
+* It should show a couple of plots
