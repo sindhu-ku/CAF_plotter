@@ -7,7 +7,7 @@
 #include "duneanaobj/StandardRecord/Proxy/SRProxy.h"
 
 
-int caf_plotter(std::string input_file_list, std::string output_rootfile, std::string type){   
+int caf_plotter(std::string input_file_list, std::string output_rootfile, std::string type){  
   //Define histograms
   TH1D *recopart_energy_hist = new TH1D("recpart_energy", "Reco particle energy of muons in GeV", 1000, 0, 1);
   TH1D *truepart_vtx_x_hist = new TH1D("truepart_vtx_x", "True MLreco passthrough vertex x", 200, -100, 100);
@@ -98,12 +98,14 @@ int caf_plotter(std::string input_file_list, std::string output_rootfile, std::s
   recopart_energy_hist->Write();
   truepart_vtx_x_hist->Write();
   caf_out_file->Close();
-
   return 1;  
 }
 
 int main(int argc, char** argv){
 
+  time_t start, end;
+  time(&start); 
+  
   if(argc!=4){
     std::cout << "\n USAGE: " << argv[0] << "input_caf_file_list output_root_file type\n" << std::endl;
     return 1;
@@ -115,5 +117,8 @@ int main(int argc, char** argv){
 
   caf_plotter(input_file_list, output_rootfile, type);
 
+  time(&end);
+  double total_time = end-start;
+  std::cout << "Execution time: " << total_time <<  " seconds" << std::endl;
   return 0;
 }
