@@ -9,7 +9,7 @@ Run used: Picorun 4.2
 
 MLreco inputs for [`ND_CAFMaker`](https://github.com/DUNE/ND_CAFMaker) that produces the CAF files:
 
-* MLreco h5 files: `/dune/data/users/drielsma/minirun4/*.h5`
+* MLreco h5 files: `/dune/data/users/skumara/Datafiles_2x2/MLreco_h5files/Picorun4.2/flow/`
 * An example cfg file to produce CAFs: `/dune/app/users/skumara/CAFs/ND_CAFMaker/cfg/ndcafmakerjob_picorun.fcl`
 
 ## File locations
@@ -71,7 +71,7 @@ ls /dune/data/users/skumara/Datafiles_2x2/CAF_rootfiles/Picorun4.2/flat/*.root >
   ```
   (or)
   ```
-  ./simple_plotter_flat flat_caf_Picorun4.2.list output_flat_picorun4.2.root flat
+  ./simple_plotter flat_caf_Picorun4.2.list output_flat_picorun4.2.root flat
   ```
 
 * This should produce output rootfiles with histograms.
